@@ -34,7 +34,7 @@ rm -f missing
 aclocal
 %{__autoconf}
 autoheader
-automake -a
+%{__automake}
 %configure \
 	--with-user=mail \
 	--with-group=mail \
