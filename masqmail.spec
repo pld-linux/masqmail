@@ -14,7 +14,6 @@ BuildRequires:	glib-devel
 Provides:	smtpdaemon
 Obsoletes:	courier
 Obsoletes:	exim
-Obsoletes:	masqmail
 Obsoletes:	omta
 Obsoletes:	postfix
 Obsoletes:	qmail
