@@ -32,7 +32,7 @@ Zastêpuje sendmaila oraz inne MTA jak qmail czy exim.
 %build
 rm -f missing
 aclocal
-autoconf
+%{__autoconf}
 autoheader
 automake -a
 %configure \
