@@ -2,11 +2,12 @@ Summary:	An offline mail server with pop3 client support
 Summary(pl):	Serwer pocztowy offline ze wsparciem dla pop3
 Name:		masqmail
 Version:	0.2.20
-Release:	2
+Release:	3
 License:	GPL
 Group:		Networking/Daemons
-# Source0-md5:	74540980ecde45783e888d1da80cb318
 Source0:	http://masqmail.cx/masqmail/download/%{name}-%{version}.tar.gz
+# Source0-md5:	74540980ecde45783e888d1da80cb318
+Patch0:		%{name}-resolv.patch
 URL:		http://masqmail.cx/masqmail/
 BuildRequires:	autoconf
 BuildRequires:	automake
@@ -43,9 +44,9 @@ Zastêpuje sendmaila oraz inne MTA jak qmail czy exim.
 
 %prep
 %setup -q
+%patch0 -p1
 
 %build
-rm -f missing
 %{__aclocal}
 %{__autoconf}
 %{__autoheader}
@@ -58,7 +59,7 @@ rm -f missing
 
 %install
 rm -rf $RPM_BUILD_ROOT
-install -d $RPM_BUILD_ROOT{%{_sysconfdir}/masqmail,%{_bindir},%{_libdir}} \
+install -d $RPM_BUILD_ROOT{%{_sysconfdir}/masqmail,%{_bindir},/usr/lib} \
 	$RPM_BUILD_ROOT{%{_sbindir},%{_datadir}/masqmail/tpl,%{_mandir}/man{5,8}} \
 	$RPM_BUILD_ROOT%{_var}/spool/masqmail/{input,lock,popuidl}
 
@@ -71,7 +72,7 @@ install docs/man/masqmail.8 $RPM_BUILD_ROOT%{_mandir}/man8
 install debian/*.8 $RPM_BUILD_ROOT%{_mandir}/man8
 install debian/newaliases $RPM_BUILD_ROOT%{_bindir}
 ln -sf ../sbin/masqmail $RPM_BUILD_ROOT%{_bindir}/mailq
-ln -sf ../sbin/masqmail $RPM_BUILD_ROOT%{_libdir}/sendmail
+ln -sf ../sbin/masqmail $RPM_BUILD_ROOT/usr/lib/sendmail
 ln -sf masqmail $RPM_BUILD_ROOT%{_sbindir}/sendmail
 
 %clean
@@ -81,7 +82,7 @@ rm -rf $RPM_BUILD_ROOT
 %defattr(644,root,root,755)
 %doc AUTHORS ChangeLog NEWS README TODO examples/example.*
 %attr(755,root,root) %{_bindir}/*
-%attr(755,root,root) %{_libdir}/*
+%attr(755,root,root) /usr/lib/sendmail
 %attr(4755,root,root) %{_sbindir}/*
 %dir %{_sysconfdir}/masqmail
 %config(noreplace) %verify(not md5 size mtime) %{_sysconfdir}/masqmail/masqmail.conf
