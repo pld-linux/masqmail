@@ -30,7 +30,7 @@ Obsoletes:	sstmp
 Obsoletes:	zmailer
 BuildRoot:	%{tmpdir}/%{name}-%{version}-root-%(id -u -n)
 
-%define		specflags_ia32	"-fomit-frame-pointer"
+%define		specflags_ia32	 -fomit-frame-pointer 
 
 %description
 MasqMail is a mail server designed for hosts that do not have a
