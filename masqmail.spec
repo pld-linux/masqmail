@@ -4,7 +4,6 @@ Name:		masqmail
 Version:	0.2.18
 Release:	1
 License:	GPL
-Vendor:		Oliver Kurth <kurth@innominate.de>
 Group:		Networking/Daemons
 Source0:	http://masqmail.cx/masqmail/download/%{name}-%{version}.tar.gz
 URL:		http://masqmail.cx/masqmail/
