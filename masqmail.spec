@@ -2,7 +2,7 @@ Summary:	An offline mail server with pop3 client support
 Summary(pl):	Serwer pocztowy offline ze wsparciem dla pop3
 Name:		masqmail
 Version:	0.2.0
-Release:	1
+Release:	2
 License:	GPL
 Vendor:		Oliver Kurth <kurth@innominate.de>
 Group:		Networking/Daemons
@@ -62,7 +62,7 @@ sendmaila oraz inne MTA jak qmail czy exim.
 
 %files
 %defattr(644,root,root,755)
-%doc *.gz
+%doc {*,examples/*}.gz
 %attr(755,root,root) %{_bindir}/*
 %attr(755,root,root) %{_libdir}/sendmail
 %attr(755,root,root) %{_sbindir}/sendmail
