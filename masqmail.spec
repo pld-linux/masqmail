@@ -14,6 +14,8 @@ BuildRequires:	glib-devel
 Provides:	smtpdaemon
 BuildRoot:	%{tmpdir}/%{name}-%{version}-root-%(id -u -n)
 
+%define		specflags_ia32	"-fomit-frame-pointer"
+
 %description
 MasqMail is a mail server designed for hosts that do not have a
 permanent internet connection eg. a home network or a single host at
