@@ -31,10 +31,10 @@ sendmaila oraz inne MTA jak qmail czy exim.
 %setup -q
 
 %build
-%{__aclocal}
-%{__autoconf}
-%{__autoheader}
-%{__automake} -a -c
+aclocal
+autoconf
+autoheader
+automake -a -c
 %configure \
 	--with-user=mail \
 	--with-group=mail \
@@ -42,23 +42,23 @@ sendmaila oraz inne MTA jak qmail czy exim.
 %{__make}
 
 %install
-%{__rm} -rf $RPM_BUILD_ROOT
-%{__install} -d $RPM_BUILD_ROOT{%{_sysconfdir}/%{name}/tpl,%{_bindir},%{_libdir},%{_sbindir},%{_mandir}/man{5,8},%{_var}/spool/%{name}/{input,popuidl}}
+rm -rf $RPM_BUILD_ROOT
+install -d $RPM_BUILD_ROOT{%{_sysconfdir}/%{name}/tpl,%{_bindir},%{_libdir},%{_sbindir},%{_mandir}/man{5,8},%{_var}/spool/%{name}/{input,popuidl}}
 
-%{__install} tpl/failmsg.tpl $RPM_BUILD_ROOT%{_sysconfdir}/%{name}/tpl
-%{__install} examples/masqmail.conf $RPM_BUILD_ROOT%{_sysconfdir}/%{name}
-%{__install} src/mservdetect $RPM_BUILD_ROOT%{_bindir}
-%{__install} src/masqmail $RPM_BUILD_ROOT%{_sbindir}
-%{__install} docs/man/masqmail.*.5 $RPM_BUILD_ROOT%{_mandir}/man5
-%{__install} docs/man/masqmail.8 $RPM_BUILD_ROOT%{_mandir}/man8
-%{__ln_s} -f '../sbin/masqmail' $RPM_BUILD_ROOT%{_bindir}/mailq
-%{__ln_s} -f '../sbin/masqmail' $RPM_BUILD_ROOT%{_libdir}/sendmail
-%{__ln_s} -f './masqmail' $RPM_BUILD_ROOT%{_sbindir}/sendmail
+install tpl/failmsg.tpl $RPM_BUILD_ROOT%{_sysconfdir}/%{name}/tpl
+install examples/masqmail.conf $RPM_BUILD_ROOT%{_sysconfdir}/%{name}
+install src/mservdetect $RPM_BUILD_ROOT%{_bindir}
+install src/masqmail $RPM_BUILD_ROOT%{_sbindir}
+install docs/man/masqmail.*.5 $RPM_BUILD_ROOT%{_mandir}/man5
+install docs/man/masqmail.8 $RPM_BUILD_ROOT%{_mandir}/man8
+ln -s -f '../sbin/masqmail' $RPM_BUILD_ROOT%{_bindir}/mailq
+ln -s -f '../sbin/masqmail' $RPM_BUILD_ROOT%{_libdir}/sendmail
+ln -s -f './masqmail' $RPM_BUILD_ROOT%{_sbindir}/sendmail
 
-%{__gzip} -9nf AUTHORS ChangeLog INSTALL NEWS README THOUGHTS TODO examples/example.*
+gzip -9nf AUTHORS ChangeLog INSTALL NEWS README THOUGHTS TODO examples/example.*
 
 %clean
-%{__rm} -rf $RPM_BUILD_ROOT
+rm -rf $RPM_BUILD_ROOT
 
 %files
 %defattr(644,root,root,755)
