@@ -1,8 +1,8 @@
 Summary:	An offline mail server with pop3 client support
 Summary(pl):	Serwer pocztowy offline ze wsparciem dla pop3
 Name:		masqmail
-Version:	0.2.5
-Release:	2
+Version:	0.2.6
+Release:	1
 License:	GPL
 Vendor:		Oliver Kurth <kurth@innominate.de>
 Group:		Networking/Daemons
@@ -12,6 +12,7 @@ Source0:	ftp://innominate.org/oku/masqmail/%{name}-%{version}.tar.gz
 URL:		http://www.innominate.org/~oku/masqmail/
 BuildRequires:	autoconf
 BuildRequires:	automake
+BuildRequires:	glib-devel
 Provides:	smtpdaemon
 BuildRoot:	%{tmpdir}/%{name}-%{version}-root-%(id -u -n)
 
@@ -23,9 +24,9 @@ replaces sendmail or other MTAs such as qmail or exim.
 
 %description -l pl
 MasqMail jest serwerem pocztowym zaprojektowanym dla maszyn nie
-posiadaj±cych sta³ego dostêpu do Inetu, jak domowe sieci czy
-pojedyncze kompy w domu. Wspiera po³±czenia z ró¿nymi ISP. Zastêpuje
-sendmaila oraz inne MTA jak qmail czy exim.
+posiadaj±cych sta³ego dostêpu do Internetu, jak domowe sieci czy
+pojedyncze komputery domowe. Wspiera po³±czenia z ró¿nymi ISP.
+Zastêpuje sendmaila oraz inne MTA jak qmail czy exim.
 
 %prep
 %setup -q
@@ -52,6 +53,7 @@ install src/masqmail $RPM_BUILD_ROOT%{_sbindir}
 install docs/man/masqmail.*.5 $RPM_BUILD_ROOT%{_mandir}/man5
 install docs/man/masqmail.8 $RPM_BUILD_ROOT%{_mandir}/man8
 install debian/*.8 $RPM_BUILD_ROOT%{_mandir}/man8
+install debian/newaliases $RPM_BUILD_ROOT%{_bindir}
 ln -s -f '../sbin/masqmail' $RPM_BUILD_ROOT%{_bindir}/mailq
 ln -s -f '../sbin/masqmail' $RPM_BUILD_ROOT%{_libdir}/sendmail
 ln -s -f './masqmail' $RPM_BUILD_ROOT%{_sbindir}/sendmail
