@@ -2,7 +2,7 @@ Summary:	An offline mail server with pop3 client support
 Summary(pl):	Serwer pocztowy offline ze wsparciem dla pop3
 Name:		masqmail
 Version:	0.2.5
-Release:	1
+Release:	2
 License:	GPL
 Vendor:		Oliver Kurth <kurth@innominate.de>
 Group:		Networking/Daemons
@@ -43,7 +43,7 @@ automake -a -c
 
 %install
 rm -rf $RPM_BUILD_ROOT
-install -d $RPM_BUILD_ROOT{%{_sysconfdir}/%{name}/tpl,%{_bindir},%{_libdir},%{_sbindir},%{_mandir}/man{5,8},%{_var}/spool/%{name}/{input,popuidl}}
+install -d $RPM_BUILD_ROOT{%{_sysconfdir}/%{name}/tpl,%{_bindir},%{_libdir},%{_sbindir},%{_mandir}/man{5,8},%{_var}/spool/%{name}/{input,lock,popuidl}}
 
 install tpl/failmsg.tpl $RPM_BUILD_ROOT%{_sysconfdir}/%{name}/tpl
 install examples/masqmail.conf $RPM_BUILD_ROOT%{_sysconfdir}/%{name}
@@ -76,4 +76,5 @@ rm -rf $RPM_BUILD_ROOT
 %config %{_sysconfdir}/%{name}/tpl/failmsg.tpl
 %dir %{_var}/spool/%{name}
 %dir %{_var}/spool/%{name}/input
+%dir %{_var}/spool/%{name}/lock
 %dir %{_var}/spool/%{name}/popuidl
