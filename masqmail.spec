@@ -1,13 +1,13 @@
 Summary:	An offline mail server with pop3 client support
 Summary(pl):	Serwer pocztowy offline ze wsparciem dla pop3
 Name:		masqmail
-Version:	0.2.6
-Release:	2
+Version:	0.2.16
+Release:	1
 License:	GPL
 Vendor:		Oliver Kurth <kurth@innominate.de>
 Group:		Networking/Daemons
-Source0:	ftp://innominate.org/oku/masqmail/%{name}-%{version}.tar.gz
-URL:		http://www.innominate.org/~oku/masqmail/
+Source0:	http://masqmail.cx/masqmail/download/%{name}-%{version}.tar.gz
+URL:		http://masqmail.cx/masqmail/
 BuildRequires:	autoconf
 BuildRequires:	automake
 BuildRequires:	glib-devel
@@ -62,7 +62,7 @@ rm -rf $RPM_BUILD_ROOT
 
 %files
 %defattr(644,root,root,755)
-%doc AUTHORS ChangeLog INSTALL NEWS README THOUGHTS TODO examples/example.*
+%doc AUTHORS ChangeLog INSTALL NEWS README TODO examples/example.*
 %attr(755,root,root) %{_bindir}/*
 %attr(755,root,root) %{_libdir}/sendmail
 %attr(755,root,root) %{_sbindir}/sendmail
