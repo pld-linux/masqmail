@@ -8,8 +8,8 @@ Vendor:		Oliver Kurth <kurth@innominate.de>
 Group:		Networking/Daemons
 Group(de):	Netzwerkwesen/Server
 Group(pl):	Sieciowe/Serwery
+Source0:	ftp://innominate.org/oku/masqmail/%{name}-%{version}.tar.gz
 URL:		http://www.innominate.org/~oku/masqmail/
-Source0:	http://www.innominate.org/~oku/masqmail/download/masqmail-%{version}.tar.gz
 BuildRequires:	autoconf
 BuildRequires:	automake
 Provides:	smtpdaemon
