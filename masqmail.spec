@@ -57,14 +57,12 @@ ln -s -f '../sbin/masqmail' $RPM_BUILD_ROOT%{_bindir}/mailq
 ln -s -f '../sbin/masqmail' $RPM_BUILD_ROOT%{_libdir}/sendmail
 ln -s -f './masqmail' $RPM_BUILD_ROOT%{_sbindir}/sendmail
 
-gzip -9nf AUTHORS ChangeLog INSTALL NEWS README THOUGHTS TODO examples/example.*
-
 %clean
 rm -rf $RPM_BUILD_ROOT
 
 %files
 %defattr(644,root,root,755)
-%doc {*,examples/*}.gz
+%doc AUTHORS ChangeLog INSTALL NEWS README THOUGHTS TODO examples/example.*
 %attr(755,root,root) %{_bindir}/*
 %attr(755,root,root) %{_libdir}/sendmail
 %attr(755,root,root) %{_sbindir}/sendmail
