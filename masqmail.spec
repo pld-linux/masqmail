@@ -15,6 +15,7 @@ Provides:	smtpdaemon
 Obsoletes:	courier
 Obsoletes:	exim
 Obsoletes:	omta
+Obsoletes:	nullmailer
 Obsoletes:	postfix
 Obsoletes:	qmail
 Obsoletes:	sendmail
@@ -22,6 +23,7 @@ Obsoletes:	sendmail-cf
 Obsoletes:	sendmail-doc
 Obsoletes:	smail
 Obsoletes:	smtpdaemon
+Obsoletes:	sstmp
 Obsoletes:	zmailer
 BuildRoot:	%{tmpdir}/%{name}-%{version}-root-%(id -u -n)
 
