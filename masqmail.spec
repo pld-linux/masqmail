@@ -6,6 +6,7 @@ Release:	1
 License:	GPL
 Group:		Networking/Daemons
 Source0:	http://masqmail.cx/masqmail/download/%{name}-%{version}.tar.gz
+# Source0-md5:	0069709ebb8b04f151c326ecb52b83c6
 URL:		http://masqmail.cx/masqmail/
 BuildRequires:	autoconf
 BuildRequires:	automake
