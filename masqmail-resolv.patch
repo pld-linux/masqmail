@@ -1,0 +1,14 @@
+--- masqmail-0.2.20/configure.ac.orig	2003-06-03 17:52:45.000000000 +0200
++++ masqmail-0.2.20/configure.ac	2004-04-01 21:09:53.755571277 +0200
+@@ -36,9 +36,9 @@
+ dnl checks necessary for libc5:
+ dnl if there is res_search in libc, it is probably libc5
+ dnl if not, it is probably libc6 and we need libresolv
+-	AC_CHECK_LIB(c, res_search, need_resolv=no, need_resolv=yes)
++	AC_CHECK_LIB(c, res_search, need_resolv=no, [AC_CHECK_LIB(c, __res_search, need_resolv=no, need_resolv=yes)])
+ 	if test "$need_resolv" = yes; then
+-		AC_CHECK_LIB(resolv, res_search,has_resolv=yes,AC_MSG_ERROR("no libresolv"))
++		AC_CHECK_LIB(resolv, res_search,has_resolv=yes, [AC_CHECK_LIB(resolv, __res_search, has_resolv=yes, [AC_MSG_ERROR("no libresolv")])])
+ 		RESOLV_LIBS='-lresolv'
+ 	else
+ 		RESOLV_LIBS=''
