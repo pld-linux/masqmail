@@ -53,9 +53,9 @@ install docs/man/masqmail.*.5 $RPM_BUILD_ROOT%{_mandir}/man5
 install docs/man/masqmail.8 $RPM_BUILD_ROOT%{_mandir}/man8
 install debian/*.8 $RPM_BUILD_ROOT%{_mandir}/man8
 install debian/newaliases $RPM_BUILD_ROOT%{_bindir}
-ln -s -f '../sbin/masqmail' $RPM_BUILD_ROOT%{_bindir}/mailq
-ln -s -f '../sbin/masqmail' $RPM_BUILD_ROOT%{_libdir}/sendmail
-ln -s -f './masqmail' $RPM_BUILD_ROOT%{_sbindir}/sendmail
+ln -sf ../sbin/masqmail $RPM_BUILD_ROOT%{_bindir}/mailq
+ln -sf ../sbin/masqmail $RPM_BUILD_ROOT%{_libdir}/sendmail
+ln -sf masqmail $RPM_BUILD_ROOT%{_sbindir}/sendmail
 
 %clean
 rm -rf $RPM_BUILD_ROOT
