@@ -1,15 +1,15 @@
 Summary:	An offline mail server with pop3 client support
 Summary(pl):	Serwer pocztowy offline ze wsparciem dla pop3
 Name:		masqmail
-Version:	0.2.0
-Release:	2
+Version:	0.2.5
+Release:	1
 License:	GPL
 Vendor:		Oliver Kurth <kurth@innominate.de>
 Group:		Networking/Daemons
 Group(de):	Netzwerkwesen/Server
 Group(pl):	Sieciowe/Serwery
-URL:		http://www.innominate.org/~oku/masqmail
-Source0:	http://www.innominate.org/~oku/masqmail/download/MasqMail-%{version}.tar.gz
+URL:		http://www.innominate.org/~oku/masqmail/
+Source0:	http://www.innominate.org/~oku/masqmail/download/masqmail-%{version}.tar.gz
 BuildRequires:	autoconf
 BuildRequires:	automake
 Provides:	smtpdaemon
@@ -51,6 +51,7 @@ install src/mservdetect $RPM_BUILD_ROOT%{_bindir}
 install src/masqmail $RPM_BUILD_ROOT%{_sbindir}
 install docs/man/masqmail.*.5 $RPM_BUILD_ROOT%{_mandir}/man5
 install docs/man/masqmail.8 $RPM_BUILD_ROOT%{_mandir}/man8
+install debian/*.8 $RPM_BUILD_ROOT%{_mandir}/man8
 ln -s -f '../sbin/masqmail' $RPM_BUILD_ROOT%{_bindir}/mailq
 ln -s -f '../sbin/masqmail' $RPM_BUILD_ROOT%{_libdir}/sendmail
 ln -s -f './masqmail' $RPM_BUILD_ROOT%{_sbindir}/sendmail
@@ -69,7 +70,7 @@ rm -rf $RPM_BUILD_ROOT
 %attr(4755,root,root) %{_sbindir}/masqmail
 %dir %{_sysconfdir}/%{name}
 %config(noreplace) %verify(not md5 size mtime) %{_sysconfdir}/%{name}/masqmail.conf
-%{_mandir}/man[58]/masqmail.*
+%{_mandir}/man[58]/*
 %defattr(644,mail,mail,755)
 %dir %{_sysconfdir}/%{name}/tpl
 %config %{_sysconfdir}/%{name}/tpl/failmsg.tpl
