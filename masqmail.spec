@@ -2,7 +2,7 @@ Summary:	An offline mail server with pop3 client support
 Summary(pl):	Serwer pocztowy offline ze wsparciem dla pop3
 Name:		masqmail
 Version:	0.2.20
-Release:	1
+Release:	2
 License:	GPL
 Group:		Networking/Daemons
 # Source0-md5:	74540980ecde45783e888d1da80cb318
@@ -12,6 +12,18 @@ BuildRequires:	autoconf
 BuildRequires:	automake
 BuildRequires:	glib-devel
 Provides:	smtpdaemon
+Obsoletes:	courier
+Obsoletes:	exim
+Obsoletes:	masqmail
+Obsoletes:	omta
+Obsoletes:	postfix
+Obsoletes:	qmail
+Obsoletes:	sendmail
+Obsoletes:	sendmail-cf
+Obsoletes:	sendmail-doc
+Obsoletes:	smail
+Obsoletes:	smtpdaemon
+Obsoletes:	zmailer
 BuildRoot:	%{tmpdir}/%{name}-%{version}-root-%(id -u -n)
 
 %define		specflags_ia32	"-fomit-frame-pointer"
