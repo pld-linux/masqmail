@@ -1,12 +1,12 @@
 Summary:	An offline mail server with pop3 client support
 Summary(pl):	Serwer pocztowy offline ze wsparciem dla pop3
 Name:		masqmail
-Version:	0.2.19
+Version:	0.2.20
 Release:	1
 License:	GPL
 Group:		Networking/Daemons
+# Source0-md5:	74540980ecde45783e888d1da80cb318
 Source0:	http://masqmail.cx/masqmail/download/%{name}-%{version}.tar.gz
-# Source0-md5:	0069709ebb8b04f151c326ecb52b83c6
 URL:		http://masqmail.cx/masqmail/
 BuildRequires:	autoconf
 BuildRequires:	automake
