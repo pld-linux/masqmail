@@ -1,0 +1,2 @@
+- added %{_var}/spool/%{name}/lock dir to the package contents,
+- release 2.
