@@ -1,7 +1,7 @@
 Summary:	An offline mail server with pop3 client support
 Summary(pl):	Serwer pocztowy offline ze wsparciem dla pop3
 Name:		masqmail
-Version:	0.2.17
+Version:	0.2.18
 Release:	1
 License:	GPL
 Vendor:		Oliver Kurth <kurth@innominate.de>
