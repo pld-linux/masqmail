@@ -6,8 +6,6 @@ Release:	1
 License:	GPL
 Vendor:		Oliver Kurth <kurth@innominate.de>
 Group:		Networking/Daemons
-Group(de):	Netzwerkwesen/Server
-Group(pl):	Sieciowe/Serwery
 Source0:	ftp://innominate.org/oku/masqmail/%{name}-%{version}.tar.gz
 URL:		http://www.innominate.org/~oku/masqmail/
 BuildRequires:	autoconf
