@@ -43,10 +43,10 @@ sendmaila oraz inne MTA jak qmail czy exim.
 
 %install
 %{__rm} -rf $RPM_BUILD_ROOT
-%{__install} -d $RPM_BUILD_ROOT{%{_sysconfdir}/masqmail/tpl,%{_bindir},%{_libdir},%{_sbindir},%{_mandir}/man{5,8},%{_localstatedir}/spool/masqmail/{input,popuidl}}
+%{__install} -d $RPM_BUILD_ROOT{%{_sysconfdir}/%{name}/tpl,%{_bindir},%{_libdir},%{_sbindir},%{_mandir}/man{5,8},%{_var}/spool/%{name}/{input,popuidl}}
 
-%{__install} tpl/failmsg.tpl $RPM_BUILD_ROOT%{_sysconfdir}/masqmail/tpl
-%{__install} examples/masqmail.conf $RPM_BUILD_ROOT%{_sysconfdir}/masqmail
+%{__install} tpl/failmsg.tpl $RPM_BUILD_ROOT%{_sysconfdir}/%{name}/tpl
+%{__install} examples/masqmail.conf $RPM_BUILD_ROOT%{_sysconfdir}/%{name}
 %{__install} src/mservdetect $RPM_BUILD_ROOT%{_bindir}
 %{__install} src/masqmail $RPM_BUILD_ROOT%{_sbindir}
 %{__install} docs/man/masqmail.*.5 $RPM_BUILD_ROOT%{_mandir}/man5
@@ -67,12 +67,12 @@ sendmaila oraz inne MTA jak qmail czy exim.
 %attr(755,root,root) %{_libdir}/sendmail
 %attr(755,root,root) %{_sbindir}/sendmail
 %attr(4755,root,root) %{_sbindir}/masqmail
-%dir %{_sysconfdir}/masqmail
-%config(noreplace) %verify(user,group,mode) %{_sysconfdir}/masqmail/masqmail.conf
+%dir %{_sysconfdir}/%{name}
+%config(noreplace) %verify(not md5 size mtime) %{_sysconfdir}/%{name}/masqmail.conf
 %{_mandir}/man[58]/masqmail.*
 %defattr(644,mail,mail,755)
-%dir %{_sysconfdir}/masqmail/tpl
-%config %{_sysconfdir}/masqmail/tpl/failmsg.tpl
-%dir %{_localstatedir}/spool/masqmail
-%dir %{_localstatedir}/spool/masqmail/input
-%dir %{_localstatedir}/spool/masqmail/popuidl
+%dir %{_sysconfdir}/%{name}/tpl
+%config %{_sysconfdir}/%{name}/tpl/failmsg.tpl
+%dir %{_var}/spool/%{name}
+%dir %{_var}/spool/%{name}/input
+%dir %{_var}/spool/%{name}/popuidl
