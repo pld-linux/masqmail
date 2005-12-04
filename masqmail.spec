@@ -93,7 +93,7 @@ rm -rf $RPM_BUILD_ROOT
 %attr(755,root,root) /usr/lib/sendmail
 %attr(4755,root,root) %{_sbindir}/*
 %dir %{_sysconfdir}/masqmail
-%config(noreplace) %verify(not md5 size mtime) %{_sysconfdir}/masqmail/masqmail.conf
+%config(noreplace) %verify(not md5 mtime size) %{_sysconfdir}/masqmail/masqmail.conf
 %dir %{_datadir}/masqmail
 %dir %{_datadir}/masqmail/tpl
 %{_datadir}/masqmail/tpl/*.tpl
