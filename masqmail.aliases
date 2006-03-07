@@ -1,8 +1,6 @@
 #
-#	>>>>>>>>>>	The program "newaliases" must be run after
-#	>> NOTE >>	this file is updated for any changes to
-#	>>>>>>>>>>	show through to masqmail.
-#
+# Masqmail reads directly from the file given with alias_file in the config
+# file, so you don't need to run 'newaliases' program.
 
 # Basic system aliases -- these MUST be present.
 mailer-daemon:	postmaster
