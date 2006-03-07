@@ -11,7 +11,7 @@ Source1:	%{name}.aliases
 Source2:	%{name}.conf
 Source3:	%{name}.default.route
 Patch0:		%{name}-resolv.patch
-URL:		http://masqmail.cx/masqmail/
+URL:		http://innominate.org/kurth/masqmail/
 BuildRequires:	autoconf
 BuildRequires:	automake
 BuildRequires:	glib-devel
