@@ -2,11 +2,14 @@ Summary:	An offline mail server with pop3 client support
 Summary(pl):	Serwer pocztowy offline ze wsparciem dla pop3
 Name:		masqmail
 Version:	0.2.20
-Release:	4
+Release:	4.3
 License:	GPL
 Group:		Networking/Daemons
 Source0:	http://masqmail.cx/masqmail/download/%{name}-%{version}.tar.gz
 # Source0-md5:	74540980ecde45783e888d1da80cb318
+Source1:	%{name}.aliases
+Source2:	%{name}.conf
+Source3:	%{name}.default.route
 Patch0:		%{name}-resolv.patch
 URL:		http://masqmail.cx/masqmail/
 BuildRequires:	autoconf
@@ -17,8 +20,8 @@ BuildRequires:	openssl-devel
 Provides:	smtpdaemon
 Obsoletes:	courier
 Obsoletes:	exim
-Obsoletes:	omta
 Obsoletes:	nullmailer
+Obsoletes:	omta
 Obsoletes:	postfix
 Obsoletes:	qmail
 Obsoletes:	sendmail
@@ -30,7 +33,8 @@ Obsoletes:	sstmp
 Obsoletes:	zmailer
 BuildRoot:	%{tmpdir}/%{name}-%{version}-root-%(id -u -n)
 
-%define		specflags_ia32	 -fomit-frame-pointer 
+%define		specflags_ia32	 -fomit-frame-pointer
+%define		_sysconfdir		/etc/mail
 
 %description
 MasqMail is a mail server designed for hosts that do not have a
@@ -55,6 +59,7 @@ Zastêpuje sendmaila oraz inne MTA jak qmail czy exim.
 %{__automake}
 %configure \
 	--%{!?debug:dis}%{?debug:en}able-debug \
+	--with-confdir=%{_sysconfdir} \
 	--enable-auth \
 	--enable-maildir \
 	--enable-ident \
@@ -67,11 +72,13 @@ Zastêpuje sendmaila oraz inne MTA jak qmail czy exim.
 
 %install
 rm -rf $RPM_BUILD_ROOT
-install -d $RPM_BUILD_ROOT{%{_sysconfdir}/masqmail,%{_bindir},/usr/lib} \
+install -d $RPM_BUILD_ROOT{%{_sysconfdir},%{_bindir},/usr/lib} \
 	$RPM_BUILD_ROOT{%{_sbindir},%{_datadir}/masqmail/tpl,%{_mandir}/man{5,8}} \
 	$RPM_BUILD_ROOT%{_var}/spool/masqmail/{input,lock,popuidl}
 
-install examples/masqmail.conf $RPM_BUILD_ROOT%{_sysconfdir}/masqmail
+install %{SOURCE1} $RPM_BUILD_ROOT%{_sysconfdir}/aliases
+install %{SOURCE2} $RPM_BUILD_ROOT%{_sysconfdir}
+install %{SOURCE3} $RPM_BUILD_ROOT%{_sysconfdir}/default.route
 install src/mservdetect $RPM_BUILD_ROOT%{_bindir}
 install src/masqmail $RPM_BUILD_ROOT%{_sbindir}
 install tpl/* $RPM_BUILD_ROOT%{_datadir}/masqmail/tpl
@@ -83,6 +90,12 @@ ln -sf ../sbin/masqmail $RPM_BUILD_ROOT%{_bindir}/mailq
 ln -sf ../sbin/masqmail $RPM_BUILD_ROOT/usr/lib/sendmail
 ln -sf masqmail $RPM_BUILD_ROOT%{_sbindir}/sendmail
 
+%triggerpostun -- %{name} < 0.2.20-4.1
+if [ -f /etc/masqmail/masqmail.conf.rpmsave ]; then
+	cp -f  %{_sysconfdir}/masqmail.conf{,.rpmnew}
+	mv -f /etc/masqmail/masqmail.conf.rpmsave %{_sysconfdir}/masqmail.conf
+fi
+
 %clean
 rm -rf $RPM_BUILD_ROOT
 
@@ -91,9 +104,12 @@ rm -rf $RPM_BUILD_ROOT
 %doc AUTHORS ChangeLog NEWS README TODO examples/example.*
 %attr(755,root,root) %{_bindir}/*
 %attr(755,root,root) /usr/lib/sendmail
-%attr(4755,root,root) %{_sbindir}/*
-%dir %{_sysconfdir}/masqmail
-%config(noreplace) %verify(not md5 mtime size) %{_sysconfdir}/masqmail/masqmail.conf
+%attr(4755,root,root) %{_sbindir}/masqmail
+%attr(755,root,root) %{_sbindir}/sendmail
+%dir %{_sysconfdir}
+%config(noreplace) %verify(not md5 mtime size) %{_sysconfdir}/masqmail.conf
+%config(noreplace) %verify(not md5 mtime size) %{_sysconfdir}/default.route
+%config(noreplace) %verify(not md5 mtime size) %{_sysconfdir}/aliases
 %dir %{_datadir}/masqmail
 %dir %{_datadir}/masqmail/tpl
 %{_datadir}/masqmail/tpl/*.tpl
