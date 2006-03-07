@@ -9,7 +9,7 @@
 # this is a list of the local parts of the original return addresses, as they are
 # configured with your mail client. If not set, anybody may send.
 
-allowed_mail_locals = "okurth"
+#allowed_mail_locals = "okurth"
 
 # local_hosts and local_nets will be checked before this.
 # cpwright.com uses the dialup up list of dul.maps.vix.com,
@@ -20,7 +20,7 @@ allowed_mail_locals = "okurth"
 # You will find this necessary only if you send mail directly
 # (if mail_host is not set below)
 
-not_allowed_rcpt_domains = "cpwright.com"
+#not_allowed_rcpt_domains = "cpwright.com"
 
 #
 # settings:
@@ -30,7 +30,7 @@ not_allowed_rcpt_domains = "cpwright.com"
 # if this is not set, mail will be sent directly.
 # If your ISP gives has a mail server, it is wiser to use it:
 
-mail_host = "mail.isp.com"
+#mail_host = "mail.example.com"
 
 # Make picky servers happy:
 # If set, we look up our own name as seen from the network
@@ -67,12 +67,12 @@ do_correct_helo = true
 #set_return_path_domain = "innominate.de"
 # this sets okurth@somewhere.else.org to kurth@innominate.de, and
 # leaves all other addresses untouched:
-map_return_path_addresses = "okurth: kurth@innominate.de"
+#map_return_path_addresses = "okurth: kurth@innominate.de"
 
 # 'From:' header:
 # Use EITHER set_h_from_domain OR map_h_from_addresses
 #set_h_from_domain = "uni-sw.gwdg.de"
-map_h_from_addresses = "okurth: Oliver Kurth <kurth@innominate.de>"
+#map_h_from_addresses = "okurth: Oliver Kurth <kurth@innominate.de>"
 
 # if your mail server outside uses the AUTH machanism, set the following.
 # You need to compile masqmail with AUTH support (--enable-auth option for ./configure):
