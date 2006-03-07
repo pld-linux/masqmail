@@ -1,0 +1,57 @@
+#
+#	>>>>>>>>>>	The program "newaliases" must be run after
+#	>> NOTE >>	this file is updated for any changes to
+#	>>>>>>>>>>	show through to masqmail.
+#
+
+# Basic system aliases -- these MUST be present.
+mailer-daemon:	postmaster
+postmaster:	root
+
+# General redirections for pseudo accounts.
+bin:		root
+daemon:		root
+adm:		root
+lp:		root
+sync:		root
+shutdown:	root
+halt:		root
+mail:		root
+news:		root
+uucp:		root
+operator:	root
+games:		root
+gopher:		root
+ftp:		root
+nobody:		root
+apache:		root
+named:		root
+xfs:		root
+gdm:		root
+mailnull:	root
+postgres:	root
+squid:		root
+
+ingres:		root
+system:		root
+toor:		root
+manager:	root
+dumper:		root
+abuse:		root
+
+newsadm:	news
+newsadmin:	news
+usenet:		news
+ftpadm:		ftp
+ftpadmin:	ftp
+ftp-adm:	ftp
+ftp-admin:	ftp
+
+# trap decode to catch security attacks
+decode:		root
+
+# Standard users added by PLD:
+stats:		root
+
+# Person who should get root's mail
+#root:		marc
