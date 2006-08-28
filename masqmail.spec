@@ -1,20 +1,20 @@
 Summary:	An offline mail server with pop3 client support
 Summary(pl):	Serwer pocztowy offline ze wsparciem dla pop3
 Name:		masqmail
-Version:	0.2.20
-Release:	5
+Version:	0.2.21
+Release:	1
 License:	GPL
 Group:		Networking/Daemons
-Source0:	http://masqmail.cx/masqmail/download/%{name}-%{version}.tar.gz
-# Source0-md5:	74540980ecde45783e888d1da80cb318
+Source0:	http://ftp.debian.org/debian/pool/main/m/masqmail/%{name}_%{version}.orig.tar.gz
+# Source0-md5:	7e989a8b0562054aea22c654507f2cb5
 Source1:	%{name}.aliases
 Source2:	%{name}.conf
 Source3:	%{name}.default.route
 Patch0:		%{name}-resolv.patch
-URL:		http://innominate.org/kurth/masqmail/
-BuildRequires:	autoconf
+URL:		http://packages.debian.org/masqmail
+BuildRequires:	autoconf >= 2.59
 BuildRequires:	automake
-BuildRequires:	glib-devel
+BuildRequires:	glib2-devel
 BuildRequires:	libident-devel
 BuildRequires:	openssl-devel
 Provides:	smtpdaemon
@@ -67,14 +67,15 @@ Zastêpuje sendmaila oraz inne MTA jak qmail czy exim.
 	--with-libcrypto \
 	--with-user=mail \
 	--with-group=mail \
-	--with-logdir=/var/log
+	--with-logdir=/var/log \
+	--with-spooldir=/var/spool/masqmail
 %{__make}
 
 %install
 rm -rf $RPM_BUILD_ROOT
 install -d $RPM_BUILD_ROOT{%{_sysconfdir},%{_bindir},/usr/lib} \
 	$RPM_BUILD_ROOT{%{_sbindir},%{_datadir}/masqmail/tpl,%{_mandir}/man{5,8}} \
-	$RPM_BUILD_ROOT%{_var}/spool/masqmail/{input,lock,popuidl}
+	$RPM_BUILD_ROOT/var/spool/masqmail/{input,lock,popuidl}
 
 install %{SOURCE1} $RPM_BUILD_ROOT%{_sysconfdir}/aliases
 install %{SOURCE2} $RPM_BUILD_ROOT%{_sysconfdir}
@@ -118,7 +119,7 @@ rm -rf $RPM_BUILD_ROOT
 %lang(it) %{_datadir}/masqmail/tpl/*.tpl.it
 %{_mandir}/man[58]/*
 %defattr(644,mail,mail,755)
-%dir %{_var}/spool/masqmail
-%dir %{_var}/spool/masqmail/input
-%dir %{_var}/spool/masqmail/lock
-%dir %{_var}/spool/masqmail/popuidl
+%dir /var/spool/masqmail
+%dir /var/spool/masqmail/input
+%dir /var/spool/masqmail/lock
+%dir /var/spool/masqmail/popuidl
