@@ -1,5 +1,5 @@
 Summary:	An offline mail server with pop3 client support
-Summary(pl):	Serwer pocztowy offline ze wsparciem dla pop3
+Summary(pl.UTF-8):   Serwer pocztowy offline ze wsparciem dla pop3
 Name:		masqmail
 Version:	0.2.21
 Release:	1
@@ -42,11 +42,11 @@ permanent internet connection eg. a home network or a single host at
 home. It has special support for connections to different ISPs. It
 replaces sendmail or other MTAs such as qmail or exim.
 
-%description -l pl
+%description -l pl.UTF-8
 MasqMail jest serwerem pocztowym zaprojektowanym dla maszyn nie
-posiadaj±cych sta³ego dostêpu do Internetu, jak domowe sieci czy
-pojedyncze komputery domowe. Wspiera po³±czenia z ró¿nymi ISP.
-Zastêpuje sendmaila oraz inne MTA jak qmail czy exim.
+posiadajÄ…cych staÅ‚ego dostÄ™pu do Internetu, jak domowe sieci czy
+pojedyncze komputery domowe. Wspiera poÅ‚Ä…czenia z rÃ³Å¼nymi ISP.
+ZastÄ™puje sendmaila oraz inne MTA jak qmail czy exim.
 
 %prep
 %setup -q
