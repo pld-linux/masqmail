@@ -1,5 +1,5 @@
 Summary:	An offline mail server with pop3 client support
-Summary(pl.UTF-8):   Serwer pocztowy offline ze wsparciem dla pop3
+Summary(pl.UTF-8):	Serwer pocztowy offline ze wsparciem dla pop3
 Name:		masqmail
 Version:	0.2.21
 Release:	1
