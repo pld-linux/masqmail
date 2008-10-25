@@ -4,7 +4,7 @@ Name:		masqmail
 Version:	0.2.21
 Release:	2
 License:	GPL
-Group:		Networking/Daemons
+Group:		Networking/Daemons/SMTP
 Source0:	http://ftp.debian.org/debian/pool/main/m/masqmail/%{name}_%{version}.orig.tar.gz
 # Source0-md5:	7e989a8b0562054aea22c654507f2cb5
 Source1:	%{name}.aliases
