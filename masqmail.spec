@@ -61,7 +61,7 @@ Zastępuje sendmaila oraz inne MTA jak qmail czy exim.
 
 %install
 rm -rf $RPM_BUILD_ROOT
-install -d $RPM_BUILD_ROOT{%{_sysconfdir},%{_bindir},/usr/lib} \
+install -d $RPM_BUILD_ROOT{%{_sysconfdir},%{_bindir},%{_prefix}/lib} \
 	$RPM_BUILD_ROOT{%{_sbindir},%{_datadir}/masqmail/tpl,%{_mandir}/man{5,8}} \
 	$RPM_BUILD_ROOT/var/spool/masqmail/{input,lock,popuidl}
 
