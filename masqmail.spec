@@ -11,6 +11,7 @@ Source1:	%{name}.aliases
 Source2:	%{name}.conf
 Source3:	%{name}.default.route
 Patch0:		%{name}-resolv.patch
+Patch1:		%{name}-includes.patch
 URL:		http://packages.debian.org/masqmail
 BuildRequires:	autoconf >= 2.59
 BuildRequires:	automake
@@ -39,6 +40,7 @@ Zastępuje sendmaila oraz inne MTA jak qmail czy exim.
 %prep
 %setup -q
 %patch0 -p1
+%patch1 -p1
 
 %build
 %{__aclocal}
