@@ -2,7 +2,7 @@ Summary:	An offline mail server with pop3 client support
 Summary(pl.UTF-8):	Serwer pocztowy offline ze wsparciem dla pop3
 Name:		masqmail
 Version:	0.3.4
-Release:	1
+Release:	2
 License:	GPL
 Group:		Networking/Daemons/SMTP
 Source0:	http://ftp.debian.org/debian/pool/main/m/masqmail/%{name}_%{version}.orig.tar.gz
