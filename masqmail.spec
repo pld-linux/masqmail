@@ -10,7 +10,6 @@ Source0:	http://ftp.debian.org/debian/pool/main/m/masqmail/%{name}_%{version}.or
 Source1:	%{name}.aliases
 Source2:	%{name}.conf
 Source3:	%{name}.default.route
-Patch0:		%{name}-resolv.patch
 URL:		http://packages.debian.org/masqmail
 BuildRequires:	autoconf >= 2.59
 BuildRequires:	automake
@@ -38,13 +37,8 @@ Zastępuje sendmaila oraz inne MTA jak qmail czy exim.
 
 %prep
 %setup -q
-%patch0 -p1
 
 %build
-%{__aclocal}
-%{__autoconf}
-%{__autoheader}
-%{__automake}
 %configure \
 	--%{!?debug:dis}%{?debug:en}able-debug \
 	--with-confdir=%{_sysconfdir} \
