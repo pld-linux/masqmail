@@ -38,10 +38,6 @@ Zastępuje sendmaila oraz inne MTA jak qmail czy exim.
 %setup -q
 
 %build
-%{__aclocal}
-%{__autoconf}
-%{__autoheader}
-%{__automake}
 %configure \
 	--%{!?debug:dis}%{?debug:en}able-debug \
 	--with-confdir=%{_sysconfdir} \
