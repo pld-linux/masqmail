@@ -6,7 +6,7 @@ Release:	1
 License:	GPL
 Group:		Networking/Daemons/SMTP
 Source0:	https://github.com/ossilator/masqmail/releases/download/v%{version}/%{name}-%{version}.tar.gz
-# Source0-md5:	09167be0f44f591e53365d559744ddb8
+# Source0-md5:	233fe5b86ff92dc9aee20e6f27b098d1
 Source1:	%{name}.aliases
 Source2:	%{name}.conf
 Source3:	%{name}.default.route
