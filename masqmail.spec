@@ -1,16 +1,16 @@
 Summary:	An offline mail server with pop3 client support
 Summary(pl.UTF-8):	Serwer pocztowy offline ze wsparciem dla pop3
 Name:		masqmail
-Version:	0.3.4
-Release:	2
+Version:	1.0.0
+Release:	1
 License:	GPL
 Group:		Networking/Daemons/SMTP
-Source0:	http://ftp.debian.org/debian/pool/main/m/masqmail/%{name}_%{version}.orig.tar.gz
-# Source0-md5:	551bd887c71d7b8f3bb149b617adb1b3
+Source0:	https://github.com/ossilator/masqmail/releases/download/v%{version}/%{name}-%{version}.tar.gz
+# Source0-md5:	09167be0f44f591e53365d559744ddb8
 Source1:	%{name}.aliases
 Source2:	%{name}.conf
 Source3:	%{name}.default.route
-URL:		http://packages.debian.org/masqmail
+URL:		https://github.com/ossilator/masqmail
 BuildRequires:	autoconf >= 2.59
 BuildRequires:	automake
 BuildRequires:	glib2-devel
@@ -20,7 +20,6 @@ Provides:	smtpdaemon
 Obsoletes:	smtpdaemon
 BuildRoot:	%{tmpdir}/%{name}-%{version}-root-%(id -u -n)
 
-%define		specflags_ia32	 -fomit-frame-pointer
 %define		_sysconfdir		/etc/mail
 
 %description
@@ -39,6 +38,10 @@ Zastępuje sendmaila oraz inne MTA jak qmail czy exim.
 %setup -q
 
 %build
+%{__aclocal}
+%{__autoconf}
+%{__autoheader}
+%{__automake}
 %configure \
 	--%{!?debug:dis}%{?debug:en}able-debug \
 	--with-confdir=%{_sysconfdir} \
